@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaryesh Shukla - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080b10;
+            --text-color: #ffffff;
+            --primary-color: hsl(210, 100%, 50%);
+            --secondary-color: hsl(250, 100%, 60%);
+            --accent-color: hsl(180, 100%, 50%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            background: var(--glass-bg);
+            padding: 20px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: var(--text-color);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            animation: gradient 5s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: typing 3s steps(30, end);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px;
+        }
+        .project-card {
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background: var(--glass-bg);
+            border-radius: var(--border-radius);
+        }
+        .contact-form input, .contact-form textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+        }
+        .contact-form button {
+            padding: 10px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: var(--primary-color);
+            color: var(--text-color);
+            cursor: pointer;
+            transition: background var(--transition-speed);
+        }
+        .contact-form button:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aaryesh Shukla</h1>
+        <nav>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Welcome to My Resume</h1>
+        <p>Developer | Designer | Data Scientist</p>
+    </section>
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>Diploma in Programming from IIT Madras (May - 2026)</li>
+            <li>B. Tech. (CS) IIST (2023-2027)</li>
+            <li>B.S. (Data Science) IIT Madras (2023-2027)</li>
+            <li>Higher Secondary School VIS Indore (2022-2023)</li>
+        </ul>
+    </section>
+    <section id="skills">
+        <h2>Skills Summary</h2>
+        <h3>Languages</h3>
+        <p>Python, SQL, HTML/CSS, JAVA, JavaScript, C, C++</p>
+        <h3>Frameworks</h3>
+        <p>NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Flask, Vue.js</p>
+        <h3>Tools</h3>
+        <p>Excel, PowerPoint, MySql, SQLite</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-card" onclick="openModal('Celebrity Image Classifier', 'Built an end-to-end machine learning web application that predicts the celebrity in an uploaded image.', 'https://github.com/AaryeshShukla/Celebrity-Classifier')">
+                <h3>Celebrity Image Classifier</h3>
+                <p>Machine Learning Web App</p>
+            </div>
+            <div class="project-card" onclick="openModal('QUIZ MASTER V-1', 'Developed a full-stack multi-user quiz platform using Flask, featuring admin and user dashboards.', 'https://github.com/AaryeshShukla/Quiz-Master---V1')">
+                <h3>QUIZ MASTER V-1</h3>
+                <p>Full-Stack Quiz Platform</p>
+            </div>
+            <div class="project-card" onclick="openModal('MediCare Pro', 'Built a full-stack hospital management web application with role-based dashboards.', 'https://github.com/AaryeshShukla/MediCare-Pro-Hospital-Management-System')">
+                <h3>MediCare Pro</h3>
+                <p>Hospital Management System</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact-form" onsubmit="submitForm(event)">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <script>
+        function openModal(title, description, link) {
+            alert(title + '\n' + description + '\n' + link);
+        }
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Message sent!');
+        }
+    </script>
+</body>
+</html>
